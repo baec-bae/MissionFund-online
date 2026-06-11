@@ -3,91 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>선교사 파송 지원 | 미션펀드</title>
-
+<title>교회 디지털 모금 지원 | 미션펀드</title>
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Noto Sans KR',sans-serif;
-}
-
-body{
-line-height:1.7;
-color:#222;
-background:#fff;
-}
-
-.container{
-width:90%;
-max-width:1200px;
-margin:0 auto;
-}
-
-/* HERO */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Noto Sans KR',sans-serif;}
+body{line-height:1.7;color:#222;background:#fff;}
+.container{width:90%;max-width:1200px;margin:0 auto;}
 
 .hero{
 position:relative;
-background-image:
-linear-gradient(
-rgba(0,20,60,0.45),
-rgba(0,20,60,0.45)
-),
+min-height:90vh;
+display:flex;
+align-items:center;
+background:
+linear-gradient(rgba(0,20,60,.75),rgba(0,20,60,.75)),
 url('hero-bg.jpg.jpg');
-
 background-size:cover;
 background-position:center;
-background-repeat:no-repeat;
-
 color:white;
-text-align:center;
-padding:160px 20px 120px;
+overflow:hidden;
 }
 
-.hero .container{
-position:relative;
+.hero-grid{
+display:grid;
+grid-template-columns:1.2fr 0.8fr;
+gap:60px;
+align-items:center;
+width:100%;
 }
 
-.hero-logo-link{
-position:absolute;
-top:-140px;
-left:15;
-display:block;
-z-index:10;
-}
+.hero-logo{height:60px;margin-bottom:30px;}
 
-.hero-logo{
-height:60px;
-width:auto;
-display:block;
-transition:all .3s;
-}
-
-.hero-logo:hover{
-transform:scale(1.03);
-opacity:.9;
+.badge{
+display:inline-block;
+padding:10px 18px;
+border-radius:999px;
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(10px);
+margin-bottom:20px;
 }
 
 .main-title{
 font-size:5rem;
 font-weight:900;
 line-height:1.05;
-letter-spacing:-5px;
 margin-bottom:25px;
-
-text-shadow:
-0 5px 15px rgba(0,0,0,.3),
-0 10px 30px rgba(0,0,0,.35);
 }
 
 .sub-title{
-font-size:1.3rem;
-max-width:800px;
-margin:0 auto;
+font-size:1.25rem;
 opacity:.95;
+max-width:700px;
 }
 
 .btn{
@@ -98,25 +63,46 @@ background:#ffb400;
 color:#000;
 text-decoration:none;
 font-weight:700;
-border-radius:12px;
-font-size:1.1rem;
+border-radius:999px;
+box-shadow:0 10px 30px rgba(255,180,0,.3);
 }
 
-.btn:hover{
-opacity:.9;
+.glass{
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(15px);
+padding:35px;
+border-radius:24px;
+border:1px solid rgba(255,255,255,.15);
 }
 
-/* SECTION */
+.glass h3{margin-bottom:20px;}
+.glass ul{list-style:none;}
+.glass li{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.15);}
 
-section{
-padding:72px 0;
-}
+section{padding:90px 0;}
 
 .section-title{
 text-align:center;
-font-size:2.3rem;
+font-size:2.7rem;
 font-weight:800;
-margin-bottom:40px;
+margin-bottom:50px;
+}
+
+.stats{
+background:#fff;
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+text-align:center;
+}
+
+.stats-grid h2{
+font-size:4rem;
+color:#0b4ea2;
+font-weight:900;
 }
 
 .cards{
@@ -126,156 +112,81 @@ gap:30px;
 }
 
 .card{
-padding:30px;
-background:#f7f9fc;
-border-radius:20px;
-box-shadow:0 5px 20px rgba(0,0,0,.05);
+background:white;
+padding:35px;
+border-radius:24px;
+border:1px solid #edf1f7;
+box-shadow:0 10px 25px rgba(0,0,0,.05);
+transition:.3s;
 }
 
-.card h3{
-font-size:1.4rem;
-margin-bottom:15px;
+.card:hover{
+transform:translateY(-8px);
+}
+
+.highlight{
+background:#f5f8ff;
+text-align:center;
+}
+
+.big-number{
+font-size:6rem;
+font-weight:900;
 color:#0b4ea2;
+line-height:1;
 }
 
 .benefits{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
 }
 
 .benefit{
-padding:24px;
-border:1px solid #eee;
-border-radius:15px;
+background:white;
+padding:30px;
+border-radius:20px;
+border:1px solid #edf1f7;
 }
-
-.benefit h4{
-font-size:1.2rem;
-color:#0b4ea2;
-margin-bottom:10px;
-}
-
-/* CTA */
 
 .cta{
-background:#fff;
+background:linear-gradient(135deg,#0b4ea2,#06377a);
+color:white;
 text-align:center;
-padding:70px 20px;
-border-top:1px solid #e9edf5;
 }
 
 .cta h2{
-font-size:2.3rem;
-font-weight:800;
-margin-bottom:15px;
+font-size:3rem;
+margin-bottom:20px;
 }
-
-.cta p{
-font-size:1.1rem;
-color:#666;
-}
-
-/* FOOTER */
 
 .footer{
 background:#f5f8ff;
 padding:50px 20px;
-color:#222;
 }
 
-.footer-content{
-max-width:1200px;
-margin:0 auto;
-text-align:left;
-}
-
-.footer-logo{
-height:55px;
-width:auto;
-margin-bottom:20px;
-display:block;
-}
-
-.footer-info{
-font-size:.95rem;
-line-height:1.9;
-}
-
-.footer-line{
-margin:30px 0;
-border:none;
-border-top:1px solid #cfd8ea;
-}
-
-.footer-message{
-font-size:.95rem;
-line-height:1.8;
-color:#666;
-}
-
-.footer-message p:first-child{
-font-weight:600;
-color:#333;
-}
-
-/* MOBILE */
+.footer-logo{height:55px;margin-bottom:20px;}
+.footer-line{margin:30px 0;border:none;border-top:1px solid #cfd8ea;}
 
 @media(max-width:768px){
-
-.hero{
-padding:120px 20px 90px;
+.hero-grid{grid-template-columns:1fr;}
+.main-title{font-size:3rem;}
+.stats-grid{grid-template-columns:1fr;}
+.big-number{font-size:3.5rem;}
+.cta h2{font-size:2rem;}
 }
-
-.hero-logo-link{
-top:-60px;
-left:0;
-}
-
-.hero-logo{
-height:45px;
-}
-
-.main-title{
-font-size:3.5rem;
-letter-spacing:-2px;
-}
-
-.sub-title{
-font-size:1rem;
-}
-
-.section-title{
-font-size:1.9rem;
-}
-
-.footer-info,
-.footer-message{
-font-size:.88rem;
-}
-
-}
-
-
-
 </style>
 </head>
-
 <body>
 
 <section class="hero">
-
 <div class="container">
+<div class="hero-grid">
 
-<a href="https://www.missionfund.org"
-target="_blank"
-class="hero-logo-link">
+<div>
+<img src="missionfund-logo-white.png" class="hero-logo">
 
-<img src="missionfund-logo-white.png"
-alt="MissionFund"
-class="hero-logo">
-
-</a>
+<div class="badge">교회 · 선교단체 전용</div>
 
 <h1 class="main-title">
 교회도 받을 수 있는<br>
@@ -284,289 +195,90 @@ class="hero-logo">
 </h1>
 
 <p class="sub-title">
-선교사 후원페이지 제작부터 온라인 홍보까지<br>
-미션펀드가 교회의 디지털 모금을 지원합니다.
+선교사 후원페이지 제작부터 온라인 홍보까지,
+미션펀드가 교회의 디지털 모금 환경 구축을 지원합니다.
 </p>
 
-<a href="https://my.missionfund.org/support/lifetime_sns.asp"
-class="btn"
-target="_blank">
-무료 상담 신청하기
+<a href="https://my.missionfund.org/support/lifetime_sns.asp" class="btn">
+우리 교회 적용 가능 여부 확인하기
 </a>
-
 </div>
 
+<div class="glass">
+<h3>지원 내용</h3>
+<ul>
+<li>✓ 월 1,500만원 상당 광고 지원 혜택</li>
+<li>✓ 선교사 후원페이지 제작</li>
+<li>✓ 신규 후원자 발굴</li>
+<li>✓ 디지털 모금 컨설팅</li>
+<li>✓ 온라인 선교 활성화</li>
+</ul>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="stats">
+<div class="container">
+<div class="stats-grid">
+<div><h2>1,500만원</h2><p>월 광고 지원 규모</p></div>
+<div><h2>24시간</h2><p>온라인 홍보 가능</p></div>
+<div><h2>1:1</h2><p>전담 상담 지원</p></div>
+</div>
+</div>
 </section>
 
 <section>
-
 <div class="container">
-
-<h2 class="section-title">
-이런 고민 있으신가요?
-</h2>
-
+<h2 class="section-title">이런 고민 있으신가요?</h2>
 <div class="cards">
-
-<div class="card">
-<h3>선교사 후원자를 더 모집하고 싶습니다</h3>
-<p>
-좋은 사역을 하고 있지만
-새로운 후원자를 만날 기회가 부족합니다.
-</p>
+<div class="card"><h3>후원자가 부족합니다</h3><p>좋은 사역을 하고 있지만 새로운 후원자를 만날 기회가 부족합니다.</p></div>
+<div class="card"><h3>온라인 홍보가 어렵습니다</h3><p>홈페이지 방문자와 문의가 많지 않습니다.</p></div>
+<div class="card"><h3>광고비가 부담됩니다</h3><p>홍보는 필요하지만 예산 확보가 쉽지 않습니다.</p></div>
 </div>
-
-<div class="card">
-<h3>온라인 홍보를 하고 싶습니다</h3>
-<p>
-교회 홈페이지 방문자와
-사역 문의가 많지 않습니다.
-</p>
 </div>
-
-<div class="card">
-<h3>광고는 하고 싶지만 비용이 부담됩니다</h3>
-<p>
-온라인 홍보의 중요성은 알지만
-광고비 예산이 부족합니다.
-</p>
-</div>
-
-</div>
-
-</div>
-
 </section>
 
-<section style="background:#f5f8ff;">
-
+<section class="highlight">
 <div class="container">
-
-<h2 class="section-title">
-교회가 얻는 혜택
-</h2>
-
-<div style="text-align:center;max-width:900px;margin:0 auto;">
-
-<div style="
-font-size:5rem;
-font-weight:900;
-color:#0b4ea2;
-line-height:1;
-margin-bottom:15px;">
-월 1,500만원
+<h2 class="section-title">교회가 얻는 혜택</h2>
+<div class="big-number">1,500만원</div>
+<p>매월 활용 가능한 광고 지원 혜택</p>
 </div>
-
-<p style="
-font-size:1.5rem;
-font-weight:700;
-margin-bottom:20px;">
-상당의 광고 지원 혜택
-</p>
-
-<p style="
-font-size:1.1rem;
-color:#666;
-max-width:700px;
-margin:0 auto;">
-별도의 광고비 부담 없이
-온라인에서 선교 사역을 알리고
-더 많은 후원자와 연결될 수 있습니다.
-</p>
-
-</div>
-
-</div>
-
 </section>
 
 <section>
-
 <div class="container">
-
-<h2 class="section-title">
-미션펀드가 함께합니다
-</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<h3>
-① 비영리 혜택 신청 지원
-</h3>
-
-<p>
-복잡한 신청 절차를
-미션펀드가 함께 안내합니다.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>
-② 온라인 홍보 환경 구축
-</h3>
-
-<p>
-교회와 선교단체가
-온라인에서 사역을 알릴 수 있도록
-환경을 구축합니다.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>
-③ 선교사 후원페이지 제작
-</h3>
-
-<p>
-선교사별 전용 후원페이지를 제작하여
-후원자 연결을 지원합니다.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section style="background:#fafafa;">
-
-<div class="container">
-
-<h2 class="section-title">
-기대 효과
-</h2>
-
+<h2 class="section-title">기대 효과</h2>
 <div class="benefits">
-
-<div class="benefit">
-
-<h4>
-01. 신규 후원자 확보
-</h4>
-
-<p>
-교회 밖 새로운 후원자와 연결될 수 있습니다.
-</p>
-
+<div class="benefit"><h4>신규 후원자 확보</h4><p>온라인을 통해 새로운 후원자와 연결됩니다.</p></div>
+<div class="benefit"><h4>선교사 지원 확대</h4><p>후원 기반을 체계적으로 확장합니다.</p></div>
+<div class="benefit"><h4>온라인 선교 활성화</h4><p>교회 사역을 더 널리 알립니다.</p></div>
+<div class="benefit"><h4>행정 부담 감소</h4><p>후원 관리 부담을 줄입니다.</p></div>
 </div>
-
-<div class="benefit">
-
-<h4>
-02. 선교사 지원 확대
-</h4>
-
-<p>
-선교사 후원 기반을 더욱 확대할 수 있습니다.
-</p>
-
 </div>
-
-<div class="benefit">
-
-<h4>
-03. 온라인 선교 활성화
-</h4>
-
-<p>
-교회의 선교 사역을 더 널리 알릴 수 있습니다.
-</p>
-
-</div>
-
-<div class="benefit">
-
-<h4>
-04. 행정 부담 감소
-</h4>
-
-<p>
-후원 관리와 디지털 모금 운영 부담을 줄일 수 있습니다.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
 </section>
 
 <section class="cta">
-
-<h2>
-우리 교회도 가능할까요?
-</h2>
-
-<p>
-교회 규모와 상황에 따라
-활용 가능한 지원 혜택이 달라질 수 있습니다.
-<br>
-무료 상담을 통해 적용 가능 여부를 확인해보세요.
-</p>
-
-<a href="https://my.missionfund.org/support/lifetime_sns.asp"
-class="btn"
-target="_blank">
-무료 상담 신청하기
-</a>
-
+<div class="container">
+<h2>우리 교회도 가능할까요?</h2>
+<p>무료 상담을 통해 적용 가능 여부를 확인해보세요.</p>
+<a href="https://my.missionfund.org/support/lifetime_sns.asp" class="btn">무료 상담 신청</a>
+</div>
 </section>
+
 <footer class="footer">
-
-<div class="footer-content">
-
-<a href="https://www.missionfund.org" target="_blank">
-
-<img src="missionfund-logo.png"
-alt="MissionFund"
-class="footer-logo">
-
-</a>
-
-<div class="footer-info">
-
+<div class="container">
+<img src="missionfund-logo.png" class="footer-logo">
 <p><strong>미션펀드</strong> | 대표자: 김햇님</p>
-
-<p>
-Korea: (32720) 충남 금산군 제원면 웨일즈마을
-</p>
-
-<p>
-Tel : 1899-0693 &nbsp;&nbsp;&nbsp;
-Email : cs@missionfund.org
-</p>
-
-<p>
-United States: 45824 Boulder Way, Temecula CA 92592
-</p>
-
-</div>
-
+<p>Korea: (32720) 충남 금산군 제원면 웨일즈마을</p>
+<p>Tel : 1899-0693 &nbsp;&nbsp;&nbsp; Email : cs@missionfund.org</p>
+<p>United States: 45824 Boulder Way, Temecula CA 92592</p>
 <hr class="footer-line">
-
-<div class="footer-message">
-
-<p>
-미션펀드는 그리스도의 몸 전체가 사명을 완수하도록 돕습니다.
-</p>
-
-<p>
-MissionFund helps the Body of Christ fulfill its mission.
-</p>
-
+<p>미션펀드는 그리스도의 몸 전체가 사명을 완수하도록 돕습니다.</p>
+<p>MissionFund helps the Body of Christ fulfill its mission.</p>
 </div>
-
-</div>
-
 </footer>
 
 </body>
